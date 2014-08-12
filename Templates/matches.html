@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>
+    matches
+</h1>
+{% for match in matches %}
+    <p>match_id: <a href="/matches/{{match.match_id}}">{{ match.match_id }}</a></p>
+{% endfor %}
+
+{% endblock %}
