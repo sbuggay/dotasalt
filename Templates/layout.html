@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type=text/css href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel=stylesheet type=text/css href="http://cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure.css">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/stylesheet.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/dota2minimapheroes.css') }}">
 
 
@@ -16,7 +17,29 @@
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
 </head>
+
+
+
+<div class="container">
+
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
+        <a class="pure-menu-heading" href="/">DOTASALT</a>
+
+        <ul>
+            <li><a href="/matches/">Matches</a></li>
+        	<li><a href="/players/">Players</a></li>
+        	<li><a href="/heroes/">Heroes</a></li>
+        	<li><a href="/items/">Items</a></li>
+        </ul>
+
+
+    </div>
+</div>
+
 {% block body %}{% endblock %}
+</div>
 
 </html>
 

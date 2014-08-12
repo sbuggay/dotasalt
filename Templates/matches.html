@@ -1,24 +1,30 @@
 {% extends "layout.html" %}
 {% block body %}
-<h3>
-    <a href="/">dotasalt</a> > matches
-</h3>
-
+<ul id="breadcrumbs">
+	<li ><a href="/">dotasalt</a></li>
+	<li ><a href="/matches/">matches</a></li>
+</ul>
     
-<table class="tg">
+<table class="pure-table">
+<thead>
   <tr>
     <th>match_id</th>
     <th>match_seq_num</th>
     <th>start_time</th>
+    <th>lobby_type</th>
   </tr>
+  </thead>
 
+<tbody>
   {% for match in matches %}
   	<tr>
   	<td><a href="/matches/{{match.match_id}}">{{ match.match_id }}</a></td>
   	<td>{{match.match_seq_num}}</td>
   	<td>{{match.start_time}}</td>
+  	<td>{{match.lobby_type}}</td>
   	</tr>
   {% endfor %}
+  </tbody>
 </table>
 
 <script>

@@ -1,60 +1,70 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<h3>
-    <a href="/">dotasalt</a> > <a href="/matches/">matches</a> > match {{match.match_id}}
-</h3>
+<ul id="breadcrumbs">
+	<li ><a href="/">DOTASALT</a></li>
+	<li ><a href="/matches/">Matches</a></li>
+	<li><a>Match {{match.match_id}}</a></li>
+</ul>
 
+<table class="pure-table pure-table-horizontal">
+	<thead>
+		<tr>
+			<th>account_id</th>
+			<th>Hero</th>
+			<th>Level</th>
+			<th>K</th>
+			<th>D</th>
+			<th>A</th>
+			<th>LH</th>
+			<th>DN</th>
+			<th>Gold</th>
+			<th>XPM</th>
+			<th>GPM</th>
+			<th>HD</th>
+			<th>HH</th>
+			<th>TD</th>
+			<th>Items</th>
+		</tr>
+	</thead>
 
-<table class="pure-table">
-<thead>
-  <tr>
-    <th>account_id</th>
-    <th>Hero</th>
-    <th>Level</th>
-    <th>K</th>
-    <th>D</th>
-    <th>A</th>
-    <th>LH</th>
-    <th>DN</th>
-    <th>Gold</th>
-    <th>XPM</th>
-    <th>GPM</th>
-    <th>HD</th>
-    <th>HH</th>
-    <th>TD</th>
-    <th>Items</th>
-  </tr>
-  </thead>
+	<tbody>
+		{% for player in match.players %}
+		<tr class="pure-table-{{ loop.cycle('odd', '') }}">
+			<td class="account_id">{{player.account_id}}</td>
+			<td><i class="d2mh hero-{{player.hero_id}}"></i></td>
+			<td class="2d">{{player.level}}</td>
+			<td class="2d">{{player.kills}}</td>
+			<td id="2d">{{player.deaths}}</td>
+			<td id="2d">{{player.assists}}</td>
+			<td id="2d">{{player.last_hits}}</td>
+			<td id="2d">{{player.denies}}</td>
+			<td>{{player.gold}}</td>
+			<td>{{player.xp_per_min}}</td>
+			<td>{{player.gold_per_min}}</td>
+			<td>{{player.hero_damage}}</td>
+			<td>{{player.hero_healing}}</td>
+			<td>{{player.tower_damage}}</td>
+			<td>{{player.item_0}}|{{player.item_1}}|{{player.item_2}}|{{player.item_3}}|{{player.item_4}}|{{player.item_5}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
 
-<tbody>
-  {% for player in match.players %}
-  	<tr>
-  	<td><a href="/players/{{player.account_id}}">{{player.account_id}}</a></td>
-  	<td><i class="d2mh hero-{{player.hero_id}}"></i></td>
-  	<td>{{player.level}}</td>
-  	<td>{{player.kills}}</td>
-  	<td>{{player.deaths}}</td>
-  	<td>{{player.assists}}</td>
-  	<td>{{player.last_hits}}</td>
-  	<td>{{player.denies}}</td>
-  	<td>{{player.gold}}</td>
-  	<td>{{player.xp_per_min}}</td>
-  	<td>{{player.gold_per_min}}</td>
-  	<td>{{player.hero_damage}}</td>
-  	<td>{{player.hero_healing}}</td>
-  	<td>{{player.tower_damage}}</td>
-  	<td>{{player.item_0}}|{{player.item_1}}|{{player.item_2}}|{{player.item_3}}|{{player.item_4}}|{{player.item_5}}</td>
-  	</tr>
-  {% endfor %}
-</tbody>
-</div>
+</table>
 
 <script>
+	$('td #account_id').html(function(i, html){
+		var regex = /4294967295/g
+		
+		if (regex.test(html)) {
+			$(this).html( $(this).html().replaceWith("<span class='c2'>abc</span>") );
+		}
+		else {
+			$(this).html( $(this).html().replaceWith("<span class='c2'>abcff</span>") );
+		}
 
-$('td').html(function(i, html){
-  return html.replace(/4294967295/g, 'private'); 
-});
+		
+	});
 </script>
 
 {% endblock %}

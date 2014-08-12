@@ -1,8 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
-<h3><a href="/">dotasalt</a> > player</h3>
-{% for match in player.matches %}
-    <p>match_id: <a href="/matches/{{match.match_id}}">{{ match.match_id }}</a></p>
-{% endfor %}
+<ul id="breadcrumbs">
+  <li ><a href="/">DOTASALT</a></li>
+  <li ><a href="/players/">Players</a></li>
+  <li><a>{{player.personaname}}</a></li>
+</ul>
+
+<img src="{{player.avatar}}"></img>
+
+
 
 {% endblock %}
