@@ -1,30 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-<script type="text/javascript">
-  $(function() {
-    var submit_form = function(e) {
-      $.getJSON($SCRIPT_ROOT + '/_request_matches', {
-        a: $('input[name="a"]').val(),
-      }, function(data) {
-        $('#result').text(data.result);
-        $('input[name=a]').focus().select();
-      });
-      return false;
-    };
-
-    $('a#request').bind('click', submit_form);
-
-    $('input[type=text]').bind('keydown', function(e) {
-      if (e.keyCode == 13) {
-        submit_form(e);
-      }
-    });
-
-    $('input[name=a]').focus();
-  });
-</script>
-<p>
-  <input type="text" name="a">
-  <span id="result">?</span>
-<p><a href=# id="request">search</a>
+<h2> dotasalt </h2>
+<i class="d2mh hero-7"></i> <a href="/matches/">matches</a>
+<a class="pure-button" href="#">A Pure Button</a>
 {% endblock %}

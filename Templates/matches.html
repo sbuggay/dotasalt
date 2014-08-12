@@ -1,10 +1,30 @@
 {% extends "layout.html" %}
 {% block body %}
-<h1>
-    matches
-</h1>
-{% for match in matches %}
-    <p>match_id: <a href="/matches/{{match.match_id}}">{{ match.match_id }}</a></p>
-{% endfor %}
+<h3>
+    <a href="/">dotasalt</a> > matches
+</h3>
+
+    
+<table class="tg">
+  <tr>
+    <th>match_id</th>
+    <th>match_seq_num</th>
+    <th>start_time</th>
+  </tr>
+
+  {% for match in matches %}
+  	<tr>
+  	<td><a href="/matches/{{match.match_id}}">{{ match.match_id }}</a></td>
+  	<td>{{match.match_seq_num}}</td>
+  	<td>{{match.start_time}}</td>
+  	</tr>
+  {% endfor %}
+</table>
+
+<script>
+$('td').html(function(i, html){
+  return html.replace(/abc/g, '<span class="c2">abc</span>'); 
+});
+</script>
 
 {% endblock %}
