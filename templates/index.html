@@ -1,4 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
 
+
+<div id="search">
+<img src={{ url_for('static', filename='assets/images/salt.png') }}>
+	<form method="get" id="q">
+		<input class="form-control" name="q" id="q_text" type="text" placeholder="Vanity name only!">
+	</form>
+</div>
+
 {% endblock %}
