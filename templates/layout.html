@@ -2,11 +2,11 @@
 <html>
 
 <head>
-<title>dotasalt</title>
+<title>DOTASALT</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel=stylesheet type=text/css href="http://cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/stylesheet.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/dota2minimapheroes.css') }}">
 
@@ -18,28 +18,41 @@
 </script>
 </head>
 
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">DOTASALT</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/matches">Matches</a></li>
+        <li class="disabled"><a href="/players">Players</a></li>
+        <li class="disabled"><a href="#">Heroes</a></li>
+        <li class="disabled"><a href="#">Items</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="disabled"><a href="#">Sign in with Steam</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <div class="container">
 
-
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
-        <a class="pure-menu-heading" href="/">DOTASALT</a>
-
-        <ul>
-            <li><a href="/matches/">Matches</a></li>
-        	<li><a href="/players/">Players</a></li>
-        	<li><a href="/heroes/">Heroes</a></li>
-        	<li><a href="/items/">Items</a></li>
-        </ul>
-
-
-    </div>
-</div>
-
 {% block body %}{% endblock %}
 </div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </html>
 
