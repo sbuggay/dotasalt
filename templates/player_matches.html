@@ -1,13 +1,16 @@
-{% extends "layout.html" %}
-{% block body %}
-<ul id="breadcrumbs">
-  <li ><a href="/">DOTASALT</a></li>
-  <li ><a href="/players/">Players</a></li>
-  <li><a>Player x</a></li>
-  <li ><a href="/players/">Matches</a></li>
+{% extends "player.html" %}
+
+{% block content %}
+
+<ul class="nav nav-tabs" role="tablist">
+  <li><a href="{{url_for('show_player', account_id=player.steamid)}}">Overview</a></li>
+  <li class="active"><a href="matches/">Matches</a></li>
+  <li class="disabled"><a href="#">Heroes</a></li>
+  <li class="disabled"><a href="#">Items</a></li>
 </ul>
-    
-<table class="pure-table">
+
+
+<table class="table">
 <thead>
   <tr>
     <th>match_id</th>
@@ -28,11 +31,5 @@
   {% endfor %}
   </tbody>
 </table>
-
-<script>
-$('td').html(function(i, html){
-  return html.replace(/abc/g, '<span class="c2">abc</span>'); 
-});
-</script>
 
 {% endblock %}
