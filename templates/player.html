@@ -1,13 +1,18 @@
 {% extends "layout.html" %}
+
 {% block body %}
-<ul id="breadcrumbs">
-  <li ><a href="/">DOTASALT</a></li>
-  <li ><a href="/players/">Players</a></li>
-  <li><a>{{player.personaname}}</a></li>
-</ul>
+<div class="media">
+  <a class="pull-left" href="#">
+    <img src="{{player.avatarmedium}}"></img>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">{{player.personaname}}</h4>
+    mad cause bad, pls uninstall.
+  </div>
+</div>
+</br>
 
-<img src="{{player.avatar}}"></img>
-
-
+{% block content %}
+{% endblock %}
 
 {% endblock %}
