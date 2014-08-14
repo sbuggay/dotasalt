@@ -8,6 +8,17 @@ MATCH_HISTORY_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistor
 MATCH_DETAIL_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/'
 PLAYER_SUMMARIES_URL = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/'
 
+def get_name_from_account_id(account_id):
+    print(account_id)
+    if account_id is 4294967295:
+        return 'private'
+
+    steam_id_64 = int(player_id) + 76561197960265728 # convert to 64 bit
+    payload = {'key': STEAM_API_KEY, 'steamids': steam_id_64}
+    r = requests.get(PLAYER_SUMMARIES_URL, params=payload)
+    print(r.json()['response']['players'][0]['personaname'])
+    return r.json()['response']['players'][0]['personaname']
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -26,6 +37,11 @@ def show_match(match_id):
     payload = {'key': STEAM_API_KEY, 'match_id': match_id}
     r = requests.get(MATCH_DETAIL_URL, params=payload)
     print(r.url)
+
+    print(r.json()['result']['players'])
+    for player in r.json()['result']['players']:
+        print(get_name_from_account_id(player['account_id']))
+
     return render_template('match.html', match = r.json()['result'])
 
 # Players
@@ -36,7 +52,7 @@ def show_players():
 
 @app.route('/players/<player_id>/')
 def show_player(player_id):
-    steam_id_64 = int(player_id) + 76561197960265728
+    steam_id_64 = int(player_id) + 76561197960265728 # convert to 64 bit
     payload = {'key': STEAM_API_KEY, 'steamids': steam_id_64}
     r = requests.get(PLAYER_SUMMARIES_URL, params=payload)
     print(r.url)
@@ -55,11 +71,8 @@ def show_player_matches(player_id):
 
 # Utilities
 
-@app.route('/_get_name_from_account_id/', methods=['GET'])
-def get_name_from_account_id(account_id):
-    print("at least attempted")
-    account_id = {"account_id": request.args.get('account_id')}
-    return jsonify(account_id)
+
+
 
 
 if __name__ == '__main__':
