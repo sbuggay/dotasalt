@@ -6,7 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<!--Themes-->
+
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">-->
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/themes/darkly.min.css') }}">
+
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/stylesheet.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/stylesheets/dota2minimapheroes.css') }}">
 
@@ -42,6 +46,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="disabled"><a href="#">Sign in with Steam</a></li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

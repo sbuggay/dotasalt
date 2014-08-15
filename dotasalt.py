@@ -60,13 +60,17 @@ def index():
 @app.route('/matches/')
 def show_matches():
     payload = {'key': STEAM_API_KEY, 'min_players': 10}
-    r = requests.get(MATCH_HISTORY_URL, params=payload).json()
-    
+    r = requests.get(MATCH_HISTORY_URL, params=payload)
+
+    print(r.url)
+
+    r = r.json()
+
     for match in r['result']['matches']:
         d = datetime.datetime.fromtimestamp(match['start_time']/1000)
         print(d)
 
-    return render_template('matches.html', matches = r['result']['matches'])
+    return render_template('matches.html', matches = r['result'])
 
 # Specific Match
 
@@ -123,6 +127,10 @@ def show_player_matches(account_id):
 ### Items
 
 ### Utilities
+
+@app.route('/_switch_theme/<theme_id>')
+def switch_theme(theme_id):
+    return 'test'
 
 @app.errorhandler(404)
 def page_not_found(e):

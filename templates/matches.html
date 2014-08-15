@@ -16,7 +16,7 @@
   </thead>
 
 <tbody>
-  {% for match in matches %}
+  {% for match in matches.matches %}
   	<tr>
   	<td><a href="/matches/{{match.match_id}}">{{ match.match_id }}</a></td>
   	<td>{{match.match_seq_num}}</td>
