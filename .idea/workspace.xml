@@ -4,14 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/templates/match.html" line="32" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3aaa7058-f19b-4b4c-9d9c-79f858045ba2" name="Default" comment="- Added a few themes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dotasalt.py" afterPath="$PROJECT_DIR$/dotasalt.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/match.html" afterPath="$PROJECT_DIR$/templates/match.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/matches.html" afterPath="$PROJECT_DIR$/templates/matches.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/player_matches.html" afterPath="$PROJECT_DIR$/templates/player_matches.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="3aaa7058-f19b-4b4c-9d9c-79f858045ba2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/images/dota.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/stylesheets/themes/cerulean.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/stylesheets/themes/cyborg.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/stylesheets/themes/darkly.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/stylesheets/themes/sandstone.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/stylesheets/themes/slate.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dotasalt.iws" />
@@ -70,8 +69,8 @@
       <file leaf-file-name="player_matches.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/player_matches.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6971831" vertical-offset="0" max-vertical-offset="720">
-              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.34859154" vertical-offset="0" max-vertical-offset="720">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -273,6 +272,7 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Pycharm Projects/dotasalt/Templates/index.html" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -466,12 +466,18 @@
       <created>1407692975191</created>
       <updated>1407692975191</updated>
     </task>
+    <task id="LOCAL-00001" summary="- Added a few themes&#10;- Fixed a bunch of layout issues">
+      <created>1408076910432</created>
+      <updated>1408076910432</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32356134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -506,6 +512,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="- Added a few themes&#10;- Fixed a bunch of layout issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added a few themes&#10;- Fixed a bunch of layout issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -766,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/player_matches.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6971831" vertical-offset="0" max-vertical-offset="720">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.34859154" vertical-offset="0" max-vertical-offset="720">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
