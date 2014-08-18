@@ -1,5 +1,2 @@
-__author__ = 'Devan'
-import app
-
-if __name__ == "__main__":
-    app.run()
+from dotasalt import app
+app.run(debug=True, port=10000)
