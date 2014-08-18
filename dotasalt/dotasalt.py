@@ -1,12 +1,10 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+from dotasalt import app
+
+from flask import Flask, jsonify, render_template, request, redirect, url_for, make_response
 import requests
 
-import time
-import datetime
 
-# Create Flask app
-app = Flask(__name__)
-app.debug = True
+import os, json, datetime, time
 
 # Steam key goes here
 
@@ -19,8 +17,13 @@ MATCH_DETAIL_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails
 PLAYER_SUMMARIES_URL = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/'
 PLAYER_VANITY_URL = 'http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/'
 
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
+APP_STATIC = os.path.join(APP_ROOT, 'static')
+
+with open(os.path.join(APP_STATIC, 'assets/items.json')) as f:
+    item_json = json.load(f)
+
 def get_name_from_account_id(account_id):
-    print(account_id)
     if int(account_id) == 4294967295:
         return 'private'
     steam_id_64 = int(account_id) + 76561197960265728 # convert to 64 bit
@@ -28,10 +31,17 @@ def get_name_from_account_id(account_id):
     r = requests.get(PLAYER_SUMMARIES_URL, params=payload)
     return r.json()['response']['players'][0]['personaname']
 
+@app.route('/andrea/')
+def andrea():
+    return render_template('test.html')
+
 ### Index
 
 @app.route('/')
 def index():
+    resp = make_response(render_template('index.html'))
+    resp.set_cookie('theme', 'darkly')
+
     searchparams = request.args.get('q')
 
     # If there are search parameters we will get info and pass it on to search.html
@@ -50,7 +60,7 @@ def index():
         return render_template('search.html') # With whatever parameters
 
     # If not just render the index
-    return render_template('index.html')
+    return resp
 
 
 ### Matches
@@ -59,7 +69,7 @@ def index():
 
 @app.route('/matches/')
 def show_matches():
-    payload = {'key': STEAM_API_KEY, 'min_players': 10}
+    payload = {'key': STEAM_API_KEY, 'matches_requested': 10}
     r = requests.get(MATCH_HISTORY_URL, params=payload)
 
     print(r.url)
@@ -80,9 +90,10 @@ def show_match(match_id):
     r = requests.get(MATCH_DETAIL_URL, params=payload).json()
     for player in r['result']['players']:
         player['name'] = get_name_from_account_id(player['account_id'])
-        print(player['name'])
 
-    return render_template('match.html', match = r['result'])
+
+    print(item_json['1'])
+    return render_template('match.html', match = r['result'], items = item_json)
 
 ### Players
 

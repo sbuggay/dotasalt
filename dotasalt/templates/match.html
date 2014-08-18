@@ -5,6 +5,8 @@
   <h1 style="margin-top: 0px;">Match <small>{{match.match_id}}</small></h1>
 </div>
 
+
+
 <table class="table table-striped table-condensed table-hover">
 	<thead>
 		<tr>
@@ -29,9 +31,6 @@
 	<tbody>
 		{% for player in match.players %}
 		<tr>
-
-
-
 			<td class="account_id">
 			{% if player.account_id == 4294967295 %}
 				{{player.name}}
@@ -52,7 +51,12 @@
 			<td>{{player.hero_damage}}</td>
 			<td>{{player.hero_healing}}</td>
 			<td>{{player.tower_damage}}</td>
-			<td>{{player.item_0}}|{{player.item_1}}|{{player.item_2}}|{{player.item_3}}|{{player.item_4}}|{{player.item_5}}</td>
+			<td><img width=40 src="{{ items[player.item_0 | string] }}">
+			<img width=40  src="{{ items[player.item_1 | string] }}">
+			<img width=40  src="{{ items[player.item_2 | string] }}">
+			<img width=40  src="{{ items[player.item_3 | string] }}">
+			<img width=40  src="{{ items[player.item_4 | string] }}">
+			<img width=40  src="{{ items[player.item_5 | string] }}"></td>
 		</tr>
 		{% endfor %}
 	</tbody>
@@ -69,8 +73,6 @@
 		else {
 			$(this).html( $(this).html().replaceWith("<span class='c2'>abcff</span>") );
 		}
-
-		
 	});
 </script>
 
