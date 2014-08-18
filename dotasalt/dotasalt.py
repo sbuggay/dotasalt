@@ -1,22 +1,24 @@
 from dotasalt import app
 
+# Flask imports
 from flask import Flask, jsonify, render_template, request, redirect, url_for, make_response
+
+# Requests
 import requests
 
-
+# Other
 import os, json, datetime, time
 
 # Steam key goes here
-
 STEAM_API_KEY = '1578879989BD74A6D189050250810E86'
 
 # API URLs
-
 MATCH_HISTORY_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/'
 MATCH_DETAIL_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/'
 PLAYER_SUMMARIES_URL = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/'
 PLAYER_VANITY_URL = 'http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/'
 
+# Static URLs
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
 APP_STATIC = os.path.join(APP_ROOT, 'static')
 

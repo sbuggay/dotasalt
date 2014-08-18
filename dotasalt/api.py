@@ -1,10 +1,10 @@
-# from flask import Flask
+from flask import Flask, request
 
-# from app import app
+from dotasalt import app
 
 
 
-# @app.route('/api/match/')
-# def match_api():
-# 	args = request.args.get('match_id')
-# 	return args
+@app.route('/api/match/')
+def match_api():
+	args = request.args.get('match_id')
+	return args
