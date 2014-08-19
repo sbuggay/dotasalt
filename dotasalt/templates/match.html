@@ -25,6 +25,7 @@
 			<th>HH</th>
 			<th>TD</th>
 			<th>Items</th>
+			<th>Salt Meter</th>
 		</tr>
 	</thead>
 
@@ -57,7 +58,16 @@
 			<img width=40  src="{{ items[player.item_3 | string] }}">
 			<img width=40  src="{{ items[player.item_4 | string] }}">
 			<img width=40  src="{{ items[player.item_5 | string] }}"></td>
+			<td>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="{{player.salt}}" aria-valuemin="0" aria-valuemax="100" style="width: {{player.salt}}%;">
+    <span class="sr-only">{{player.salt}}% Complete</span>
+  </div>
+</div>
+{{player.salt}}
+			</td>
 		</tr>
+
 		{% endfor %}
 	</tbody>
 

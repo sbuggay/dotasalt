@@ -94,6 +94,21 @@ def show_match(match_id):
         player['name'] = get_name_from_account_id(player['account_id'])
 
 
+
+        salt = 0
+        salt = int(player['gold_per_min']) * 0.002
+        salt += int(player['xp_per_min']) * 0.002
+        salt += int(player['kills']) * 0.5
+        salt -= int(player['deaths']) * 0.5
+        salt += int(player['assists']) * 0.25
+        salt += int(player['tower_damage']) * 0.003
+        salt += int(player['hero_damage']) * 0.002
+        salt += int(player['hero_healing']) * 0.002
+        salt += floor(int(player['tower_damage'] / 1800))
+        print(salt)
+        player['salt'] = 100 - salt
+
+
     print(item_json['1'])
     return render_template('match.html', match = r['result'], items = item_json)
 
