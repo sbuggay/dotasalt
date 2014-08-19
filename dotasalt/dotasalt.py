@@ -104,9 +104,9 @@ def show_match(match_id):
         salt += int(player['tower_damage']) * 0.003
         salt += int(player['hero_damage']) * 0.002
         salt += int(player['hero_healing']) * 0.002
-        salt += floor(int(player['tower_damage'] / 1800))
+        salt += int(player['tower_damage'] / 1800)
         print(salt)
-        player['salt'] = 100 - salt
+        player['salt'] = int(100 - salt)
 
 
     print(item_json['1'])
