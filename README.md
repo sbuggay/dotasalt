@@ -1,6 +1,8 @@
 dotasalt
 ========
 
+*This is a very old project and is no longer worked on/maintained.*
+
 A DotA 2 match and player viewer using the DotA 2 API.
 
 ![frontpage](https://github.com/sbuggay/dotasalt/blob/master/demo/frontpage.png?raw=true)
